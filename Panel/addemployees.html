@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agregar Empleado</title>
+
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Axios -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+
+<body class="bg-gray-100 min-h-screen">
+
+    <!-- NAVBAR -->
+    <nav class="bg-white shadow-md px-6 py-4 flex justify-between items-center w-full fixed top-0 left-0 z-20">
+        <a href="admin.html" class="text-xl font-bold text-gray-800">Regresar al Panel</a>
+
+        <div class="space-x-2">
+            <button onclick="location.href='addemployees.html'" class="nav-btn">Agregar</button>
+            <button onclick="location.href='showemployees.html'" class="nav-btn">Ver</button>
+            <button onclick="location.href='searchname.html'" class="nav-btn">Buscar</button>
+            <button onclick="location.href='editemployees.html'" class="nav-btn">Modificar</button>
+            <button onclick="location.href='deleteemployees.html'" class="nav-btn">Eliminar</button>
+        </div>
+    </nav>
+
+    <style>
+        .nav-btn {
+            @apply bg-blue-100 text-blue-700 px-4 py-2 rounded-lg hover:bg-blue-200 font-medium transition;
+        }
+    </style>
+
+    <!-- FORMULARIO PRINCIPAL -->
+    <div class="max-w-3xl mx-auto bg-white shadow-lg rounded-xl p-8 mt-28">
+
+        <h1 class="text-3xl font-bold text-gray-800 mb-6">Agregar Empleado</h1>
+
+        <form id="form-agregar" class="space-y-5">
+
+            <!-- NOMBRE -->
+            <div>
+                <label class="block font-medium mb-1">Nombre</label>
+                <input id="nombre" type="text" required
+                class="input-field" placeholder="Ejemplo: Juan">
+            </div>
+
+            <!-- APELLIDOS -->
+            <div>
+                <label class="block font-medium mb-1">Apellidos</label>
+                <input id="apellidos" type="text" required
+                class="input-field" placeholder="Ejemplo: Pérez Gómez">
+            </div>
+
+            <!-- TELÉFONO -->
+            <div>
+                <label class="block font-medium mb-1">Teléfono</label>
+                <input id="telefono" type="text" required
+                class="input-field" placeholder="Ejemplo: 4421234567">
+            </div>
+
+            <!-- CORREO -->
+            <div>
+                <label class="block font-medium mb-1">Correo</label>
+                <input id="correo" type="email" required
+                class="input-field" placeholder="correo@dominio.com">
+            </div>
+
+            <!-- DIRECCIÓN -->
+            <div>
+                <label class="block font-medium mb-1">Dirección</label>
+                <input id="direccion" type="text" required
+                class="input-field" placeholder="Calle 123, Colonia">
+            </div>
+
+            <!-- FECHA DE NACIMIENTO -->
+            <div>
+                <label class="block font-medium mb-1">Fecha de nacimiento</label>
+                <input id="fecha_nacimiento" type="date" required
+                class="input-field">
+            </div>
+
+            <!-- CURP -->
+            <div>
+                <label class="block font-medium mb-1">CURP</label>
+                <input id="curp" type="text" maxlength="18" required
+                class="input-field" placeholder="GARC800101HDFABC01">
+            </div>
+
+            <!-- RFC -->
+            <div>
+                <label class="block font-medium mb-1">RFC</label>
+                <input id="rfc" type="text" maxlength="13" required
+                class="input-field" placeholder="GARC800101ABC">
+            </div>
+
+            <!-- HORARIO -->
+            <div>
+                <label class="block font-medium mb-1">Horario</label>
+                <input id="horario" type="text" required
+                class="input-field" placeholder="13:00 - 21:00">
+            </div>
+
+            <!-- SUELDO -->
+            <div>
+                <label class="block font-medium mb-1">Sueldo</label>
+                <input id="sueldo" type="number" step="0.01" required
+                class="input-field" placeholder="8500.50">
+            </div>
+
+            <!-- PUESTO -->
+            <div>
+                <label class="block font-medium mb-1">Puesto (Área)</label>
+                <select id="puesto" required class="input-field">
+                    <option value="">Selecciona un puesto</option>
+                    <option>Departamento de Energías Renovables</option>
+                    <option>Área Auxiliar</option>
+                    <option>Departamento Juridico</option>
+                    <option>Obra Civil</option>
+                    <option>Área administrativa</option>
+                    <option>Área contable</option>
+                    <option>Área de ingeniería y nuevos proyectos</option>
+                    <option>Área impacto vial</option>
+                    <option>Área de medio ambiente y protección civil</option>
+                    <option>Coordinación de impacto ambiental</option>
+                    <option>Coordinacion de Proteccion Civil</option>
+                </select>
+            </div>
+
+            <!-- ANTIGÜEDAD -->
+            <div>
+                <label class="block font-medium mb-1">Antigüedad (años)</label>
+                <input id="antiguedad" type="number" required
+                class="input-field" placeholder="3">
+            </div>
+
+            <!-- MENSAJE -->
+            <div id="mensaje" class="text-red-600 font-medium"></div>
+
+            <!-- SUBMIT -->
+            <button type="submit"
+            class="w-full bg-blue-600 text-white py-3 rounded-lg text-lg font-semibold hover:bg-blue-700 transition">
+                Agregar empleado
+            </button>
+
+        </form>
+    </div>
+
+    <!-- JS -->
+    <script src="./js/addemployees.js"></script>
+
+    <style>
+        .input-field {
+            @apply w-full px-4 py-2 border rounded-lg shadow-sm focus:ring-2 focus:ring-blue-400 outline-none;
+        }
+    </style>
+
+</body>
+</html>

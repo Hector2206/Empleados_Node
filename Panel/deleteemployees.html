@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Eliminar Empleado</title>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Axios y scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+  <script src="./js/pdfEmpleado.js"></script>
+  <script src="./js/deleteemployees.js"></script>
+
+</head>
+
+<body class="bg-gray-100 min-h-screen">
+
+  <!-- NAVBAR -->
+  <nav class="bg-white shadow-md w-full fixed top-0 left-0 px-6 py-4 flex justify-between items-center z-20">
+    <a href="admin.html" class="text-xl font-bold text-gray-800">Panel Admin</a>
+
+    <div class="space-x-2">
+      <button onclick="location.href='addemployees.html'" class="nav-btn">Agregar</button>
+      <button onclick="location.href='showemployees.html'" class="nav-btn">Ver</button>
+      <button onclick="location.href='searchname.html'" class="nav-btn">Buscar</button>
+      <button onclick="location.href='editemployees.html'" class="nav-btn">Modificar</button>
+      <button onclick="location.href='deleteemployees.html'" class="nav-btn">Eliminar</button>
+    </div>
+  </nav>
+
+  <style>
+    .nav-btn {
+      @apply bg-blue-100 text-blue-700 px-4 py-2 rounded-lg hover:bg-blue-200 font-medium transition;
+    }
+  </style>
+
+  <!-- CONTENIDO PRINCIPAL -->
+  <div class="max-w-3xl mx-auto mt-28 bg-white shadow-lg rounded-xl p-8">
+
+    <h1 class="text-3xl font-bold text-gray-900 mb-6">Eliminar Empleado</h1>
+
+    <!-- Buscar por ID -->
+    <div class="mb-6">
+      <label class="block text-gray-700 font-medium mb-1">ID del empleado</label>
+      <input id="input-id" 
+             type="number" 
+             placeholder="Ingresa el ID"
+             class="w-full px-4 py-2 border rounded-lg shadow-sm focus:ring-2 focus:ring-blue-500 outline-none" />
+    </div>
+
+    <button id="btn-buscar"
+            class="w-full bg-blue-600 text-white py-3 rounded-lg text-lg font-semibold hover:bg-blue-700 transition mb-6">
+      Buscar empleado
+    </button>
+
+    <!-- Resultado -->
+    <div id="employee-card"></div>
+
+  </div>
+
+  <script src="./js/deleteemployees.js"></script>
+
+  <!-- ESTILOS EXTRA DE EMPLEADO -->
+  <style>
+    .employee-card {
+      @apply bg-white shadow-md rounded-xl p-5 mt-4 border border-gray-200;
+    }
+    .delete-btn {
+      @apply bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-700 transition w-full;
+    }
+  </style>
+
+</body>
+</html>

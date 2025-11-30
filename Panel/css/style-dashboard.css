@@ -1,0 +1,51 @@
+body {
+    font-family: "Poppins", sans-serif;
+    background: #f4f7fa;
+}
+
+.dashboard-title {
+    font-weight: 600;
+    font-size: 34px;
+}
+
+.dashboard-subtitle {
+    color: #6c757d;
+    font-size: 16px;
+}
+
+.dashboard-card {
+    border-radius: 15px;
+    padding: 25px;
+    margin-bottom: 25px;
+    background: white;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
+    transition: 0.2s;
+}
+
+.dashboard-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+}
+
+.section-title {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.btn-menu {
+    width: 100%;
+    padding: 12px;
+    font-size: 15px;
+    border-radius: 10px;
+    margin-bottom: 12px;
+}
+
+#btn-logout {
+    background-color: #333;
+    border: none;
+}
+
+#btn-logout:hover {
+    background-color: #000;
+}

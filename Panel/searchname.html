@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Buscar Empleado</title>
+
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Axios y scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+  <script src="./js/pdfEmpleado.js"></script>
+  <script src="./js/nominas.js"></script>
+  <script src="./js/asistencias.js"></script>
+  <script src="./js/searchname.js" defer></script>
+
+</head>
+
+<body class="bg-gray-100 min-h-screen">
+
+  <!-- NAVBAR -->
+  <nav class="bg-white shadow-md w-full fixed top-0 left-0 px-6 py-4 flex justify-between items-center z-20">
+    <a href="admin.html" class="text-xl font-bold text-gray-800">Panel Admin</a>
+
+    <div class="space-x-2">
+      <button onclick="location.href='addemployees.html'" class="nav-btn">Agregar</button>
+      <button onclick="location.href='showemployees.html'" class="nav-btn">Ver</button>
+      <button onclick="location.href='searchname.html'" class="nav-btn">Buscar</button>
+      <button onclick="location.href='editemployees.html'" class="nav-btn">Modificar</button>
+      <button onclick="location.href='deleteemployees.html'" class="nav-btn">Eliminar</button>
+    </div>
+  </nav>
+
+  <style>
+    .nav-btn {
+      @apply bg-blue-100 text-blue-700 px-4 py-2 rounded-lg hover:bg-blue-200 font-medium transition;
+    }
+
+    .input-field {
+      @apply w-full px-4 py-2 border rounded-lg shadow-sm focus:ring-2 focus:ring-blue-400 outline-none;
+    }
+
+    .employee-card {
+      @apply bg-white shadow-md rounded-xl p-5 mt-4 border border-gray-200 space-y-4;
+    }
+  </style>
+
+  <!-- CONTENIDO PRINCIPAL -->
+  <div class="max-w-3xl mx-auto mt-28 bg-white shadow-lg rounded-xl p-8">
+
+    <h1 class="text-3xl font-bold text-gray-900 mb-2">Buscar Empleado</h1>
+    <p class="text-gray-600 mb-6">Puedes buscar por nombre, ID o área.</p>
+
+    <!-- CAMPO 1: Nombre -->
+    <div class="mb-5">
+      <label class="block text-gray-700 font-medium mb-1">Nombre</label>
+      <input id="input-nombre" type="text" placeholder="Ejemplo: Juan" class="input-field">
+    </div>
+
+    <!-- CAMPO 2: ID -->
+    <div class="mb-5">
+      <label class="block text-gray-700 font-medium mb-1">ID del empleado</label>
+      <input id="input-id" type="number" placeholder="Ejemplo: 1" class="input-field">
+    </div>
+
+    <!-- CAMPO 3: Puesto -->
+    <div class="mb-5">
+      <label class="block text-gray-700 font-medium mb-1">Área / Puesto</label>
+      <select id="input-puesto" class="input-field">
+        <option value="">Selecciona un área</option>
+        <option>Departamento de Energías Renovables</option>
+        <option>Área Auxiliar</option>
+        <option>Departamento Juridico</option>
+        <option>Obra Civil</option>
+        <option>Área administrativa</option>
+        <option>Área contable</option>
+        <option>Área de ingeniería y nuevos proyectos</option>
+        <option>Área impacto vial</option>
+        <option>Área de medio ambiente y protección civil</option>
+        <option>Coordinación de impacto ambiental</option>
+        <option>Coordinacion de Proteccion Civil</option>
+      </select>
+    </div>
+
+    <!-- BOTÓN BUSCAR -->
+    <button id="search-button"
+            class="w-full bg-blue-600 text-white py-3 rounded-lg text-lg font-semibold hover:bg-blue-700 transition">
+      Buscar empleado
+    </button>
+
+    <!-- RESULTADOS -->
+    <div id="employee-details" class="mt-6"></div>
+  </div>
+
+
+  <!-- MODAL PAGO INDIVIDUAL -->
+  <div id="modalPagoIndividual" class="hidden fixed inset-0 bg-black bg-opacity-40 flex items-center justify-center z-50">
+    <div class="bg-white w-96 rounded-xl shadow-lg p-6">
+      <h2 class="text-xl font-semibold mb-3">Confirmar pago de nómina</h2>
+
+      <p id="texto-modal-pago-individual" class="mb-2 text-gray-700"></p>
+
+      <input id="input-password-pago-individual" 
+             type="password" 
+             placeholder="Contraseña"
+             class="w-full border rounded-lg px-3 py-2 mb-3">
+
+      <div id="msg-pago-individual" class="text-red-600 text-sm mb-3"></div>
+
+      <div class="flex justify-end space-x-3">
+        <button onclick="cerrarModal()"
+                class="px-4 py-2 bg-gray-200 rounded-lg hover:bg-gray-300">
+          Cancelar
+        </button>
+
+        <button id="btn-confirmar-pago-individual"
+                class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700">
+          Confirmar
+        </button>
+      </div>
+    </div>
+  </div>
+
+</body>
+
+</html>
